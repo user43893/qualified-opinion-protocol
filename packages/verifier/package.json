@@ -1,0 +1,42 @@
+{
+  "name": "@qualified-opinion/verifier",
+  "version": "3.0.0",
+  "description": "Offline verifier and CLI for Qualified Opinion V3 vote proofs and Google Confidential Space attestations",
+  "type": "module",
+  "license": "Apache-2.0",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "README.md", "LICENSE", "NOTICE"],
+  "bin": {
+    "qualified-opinion-verify": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "keywords": [
+    "qualified-opinion",
+    "offline-verification",
+    "voting",
+    "confidential-space"
+  ],
+  "scripts": {
+    "build": "bun ../../scripts/build.ts verifier",
+    "test": "bun test src",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "verify": "bun src/cli.ts"
+  },
+  "dependencies": {
+    "@qualified-opinion/protocol": "3.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

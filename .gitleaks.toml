@@ -1,0 +1,11 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Generated and third-party content"
+paths = [
+  '''(^|/)node_modules/''',
+  '''(^|/)artifacts/''',
+  '''(^|/)packages/[^/]+/dist/''',
+  '''(^|/)bun\.lock$'''
+]

@@ -1,0 +1,40 @@
+{
+  "name": "@qualified-opinion/protocol",
+  "version": "3.0.0",
+  "description": "Canonical V3 qualified-opinion protocol, signatures, Merkle proofs, and deterministic tally primitives",
+  "type": "module",
+  "license": "Apache-2.0",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "README.md", "LICENSE", "NOTICE"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./node": {
+      "types": "./dist/node.d.ts",
+      "import": "./dist/node.js"
+    }
+  },
+  "keywords": [
+    "qualified-opinion",
+    "voting",
+    "verification",
+    "merkle-tree",
+    "webauthn"
+  ],
+  "scripts": {
+    "build": "bun ../../scripts/build.ts protocol",
+    "test": "bun test src",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

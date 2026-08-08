@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["bun", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "@qualified-opinion/protocol": ["packages/protocol/src/index.ts"],
+      "@qualified-opinion/protocol/node": ["packages/protocol/src/node.ts"]
+    }
+  },
+  "include": ["packages/**/*.ts", "scripts/**/*.ts"]
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "qualified-opinion.canonicalization-conformance-vectors.v3",
+  "publicOnly": true,
+  "cases": [
+    {
+      "id": "rfc8785-ordering-unicode-and-number",
+      "kind": "canonical-json",
+      "value": {
+        "z": [
+          3,
+          true,
+          null,
+          "é"
+        ],
+        "a": {
+          "€": "euro",
+          "\r": "control",
+          "😀": "astral"
+        },
+        "number": 333333333.33333329
+      },
+      "canonical": "{\"a\":{\"\\r\":\"control\",\"€\":\"euro\",\"😀\":\"astral\"},\"number\":333333333.3333333,\"z\":[3,true,null,\"é\"]}",
+      "sha256Base64Url": "dViCLAFmqqEp1E6YQasNx89-5-ot4CSyiD98z8iyMaM",
+      "sha256Hex": "7558822c0166aaa129d44e9841ab0dc7cf7ee7ea2de024b2883f7ccfc8b231a3"
+    },
+    {
+      "id": "public-vote-event",
+      "kind": "vote-event-v3",
+      "value": {
+        "schema": "qualified-opinion.vote-event.v3",
+        "eventId": "event-example-001",
+        "eventType": "cast",
+        "binding": {
+          "instance": {
+            "id": "example-instance",
+            "profileSha256": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          },
+          "eligibilityPolicy": {
+            "id": "example.eligibility.v3",
+            "sha256": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE"
+          },
+          "tallyPolicy": {
+            "id": "example.tally.v3",
+            "sha256": "AgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI"
+          },
+          "trustPolicy": {
+            "id": "example.trust.v3",
+            "sha256": "AwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM"
+          },
+          "audience": "https://vote.example.test",
+          "origin": "https://app.example.test"
+        },
+        "questionNullifier": "BAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ",
+        "authorizationSha256": "BQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU",
+        "publicationMode": "private",
+        "ballotManifestSha256": "BgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgY",
+        "ballotId": "ballot-example-001",
+        "questionId": "question-example-001",
+        "choiceId": "choice-yes",
+        "sequence": 1,
+        "previousEventSha256": null,
+        "challenge": "BwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwc",
+        "issuedAt": "2026-01-02T03:04:05.000Z",
+        "questionKeyId": "CAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg"
+      },
+      "canonical": "{\"authorizationSha256\":\"BQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU\",\"ballotId\":\"ballot-example-001\",\"ballotManifestSha256\":\"BgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgY\",\"binding\":{\"audience\":\"https://vote.example.test\",\"eligibilityPolicy\":{\"id\":\"example.eligibility.v3\",\"sha256\":\"AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE\"},\"instance\":{\"id\":\"example-instance\",\"profileSha256\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\"},\"origin\":\"https://app.example.test\",\"tallyPolicy\":{\"id\":\"example.tally.v3\",\"sha256\":\"AgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI\"},\"trustPolicy\":{\"id\":\"example.trust.v3\",\"sha256\":\"AwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM\"}},\"challenge\":\"BwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwc\",\"choiceId\":\"choice-yes\",\"eventId\":\"event-example-001\",\"eventType\":\"cast\",\"issuedAt\":\"2026-01-02T03:04:05.000Z\",\"previousEventSha256\":null,\"publicationMode\":\"private\",\"questionId\":\"question-example-001\",\"questionKeyId\":\"CAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg\",\"questionNullifier\":\"BAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ\",\"schema\":\"qualified-opinion.vote-event.v3\",\"sequence\":1}",
+      "sha256Base64Url": "RDCF0_UVvs-_n-obv5iptEb8GUe1McDBp_H6K7PTn-A",
+      "sha256Hex": "443085d3f515becfbf9fea1bbf98a9b446fc1947b531c0c1a7f1fa2bb3d39fe0"
+    },
+    {
+      "id": "question-vote-log-scope",
+      "kind": "question-vote-log-id-v3",
+      "value": {
+        "domain": "qualified-opinion.question-votes.v3",
+        "instanceId": "example-instance",
+        "questionId": "question-example-001"
+      },
+      "canonical": "{\"domain\":\"qualified-opinion.question-votes.v3\",\"instanceId\":\"example-instance\",\"questionId\":\"question-example-001\"}",
+      "sha256Base64Url": "zllq0qA_zJpuQmZ9lqCnHXvlEON6HqrW56iYPTOY_hI",
+      "sha256Hex": "ce596ad2a03fcc9a6e42667d96a0a71d7be510e37a1eaad6e7a8983d3398fe12",
+      "expectedLogId": "qualified-opinion.question-votes.v3:zllq0qA_zJpuQmZ9lqCnHXvlEON6HqrW56iYPTOY_hI"
+    },
+    {
+      "id": "empty-active-eligibility-directory-checkpoint",
+      "kind": "active-eligibility-directory-checkpoint-v3",
+      "value": {
+        "schema": "qualified-opinion.active-eligibility-directory-checkpoint.v3",
+        "directoryId": "example-instance:active-eligibility",
+        "instanceId": "example-instance",
+        "protocolBindingSha256": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "sequence": 1,
+        "treeSize": 0,
+        "rootHash": "47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU",
+        "previousCheckpointSha256": null,
+        "issuedAt": "2026-01-02T03:04:05.000Z",
+        "issuer": {
+          "algorithm": "Ed25519",
+          "keyId": "sha256:example-eligibility-key",
+          "purpose": "eligibility"
+        }
+      },
+      "canonical": "{\"directoryId\":\"example-instance:active-eligibility\",\"instanceId\":\"example-instance\",\"issuedAt\":\"2026-01-02T03:04:05.000Z\",\"issuer\":{\"algorithm\":\"Ed25519\",\"keyId\":\"sha256:example-eligibility-key\",\"purpose\":\"eligibility\"},\"previousCheckpointSha256\":null,\"protocolBindingSha256\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\",\"rootHash\":\"47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU\",\"schema\":\"qualified-opinion.active-eligibility-directory-checkpoint.v3\",\"sequence\":1,\"treeSize\":0}",
+      "sha256Base64Url": "HlTBrr1DIIghqn1FllCYG_q978Av03Rlo0EsHRBxlnA",
+      "sha256Hex": "1e54c1aebd43208821aa7d459650981bfabdefc02fd37465a3412c1d10719670"
+    }
+  ]
+}

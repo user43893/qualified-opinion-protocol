@@ -1,0 +1,41 @@
+{
+  "name": "qualified-opinion-protocol-v3-workspace",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Current Qualified Opinion V3 protocol and offline verifier",
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "bun@1.3.12",
+  "engines": {
+    "bun": ">=1.3.0",
+    "node": ">=20"
+  },
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "audit": "bun audit",
+    "boundary": "bun run topology && bun scripts/check-boundaries.ts",
+    "build": "bun scripts/build.ts",
+    "check": "bun run boundary && bun run format:check && bun run typecheck && bun run test && bun run vectors",
+    "ci": "bun run clean && bun run check && bun run build && bun run smoke && bun run licenses && bun run secrets && bun run pack:check",
+    "clean": "bun scripts/clean.ts",
+    "format": "biome check --write .",
+    "format:check": "biome check .",
+    "gitleaks": "bun scripts/run-gitleaks.ts",
+    "licenses": "bun scripts/check-licenses.ts",
+    "pack": "bun run build && bun run pack:check && bun scripts/pack.ts",
+    "pack:check": "bun scripts/check-packages.ts",
+    "publication:harden-repository": "bun scripts/publication-hardening.ts",
+    "secrets": "bun scripts/scan-secrets.ts",
+    "smoke": "bun scripts/smoke-built-packages.ts",
+    "test": "bun test packages scripts/resolve-scanner-release.test.ts scripts/publication-hardening.test.ts",
+    "topology": "bun scripts/verify-publication-topology.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "vectors": "bun scripts/verify-vectors.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/bun": "1.2.9",
+    "@types/node": "22.13.11",
+    "typescript": "5.8.2"
+  }
+}

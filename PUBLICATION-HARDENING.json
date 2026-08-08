@@ -1,0 +1,76 @@
+{
+  "schema": "publication.github-repository-hardening-policy.current",
+  "credential": {
+    "secretName": "PUBLICATION_HARDENING_TOKEN"
+  },
+  "repository": {
+    "owner": "konsensus-platform",
+    "ownerId": 292473859,
+    "name": "qualified-opinion-protocol",
+    "repositoryId": 1319013637,
+    "defaultBranch": "main",
+    "visibility": "public",
+    "description": "Current Qualified Opinion V3 protocol and offline verifier",
+    "homepage": "https://github.com/konsensus-platform/qualified-opinion-protocol",
+    "topics": ["auditable-voting", "cryptography", "open-source", "privacy", "voting"],
+    "settings": {
+      "allowMergeCommit": false,
+      "allowRebaseMerge": false,
+      "allowSquashMerge": true,
+      "deleteBranchOnMerge": true,
+      "hasDiscussions": false,
+      "hasIssues": true,
+      "hasProjects": false,
+      "hasWiki": false
+    }
+  },
+  "actions": {
+    "enabled": true,
+    "allowedActions": "selected",
+    "shaPinningRequired": true,
+    "defaultWorkflowPermissions": "read",
+    "canApprovePullRequestReviews": false,
+    "githubOwnedAllowed": false,
+    "verifiedAllowed": false,
+    "patternsAllowed": [
+      "actions/checkout@*",
+      "actions/setup-node@*",
+      "oven-sh/setup-bun@*"
+    ]
+  },
+  "branchProtection": {
+    "branch": "main",
+    "requiredStatusChecks": [
+      {
+        "context": "CI / Build, test, and inspect packages",
+        "appId": 15368
+      },
+      {
+        "context": "Secret Scan / Gitleaks 8.30.1 exact-tree scan",
+        "appId": 15368
+      }
+    ],
+    "strictStatusChecks": true,
+    "enforceAdmins": true,
+    "requirePullRequest": true,
+    "requiredApprovingReviewCount": 0,
+    "dismissStaleReviews": true,
+    "requireCodeOwnerReviews": false,
+    "requireLastPushApproval": false,
+    "requireConversationResolution": true,
+    "requireLinearHistory": true,
+    "requireSignedCommits": true,
+    "allowForcePushes": false,
+    "allowDeletions": false,
+    "blockCreations": false
+  },
+  "security": {
+    "dependencyGraph": true,
+    "vulnerabilityAlerts": true,
+    "automatedSecurityFixes": true,
+    "privateVulnerabilityReporting": true,
+    "advancedSecurity": true,
+    "secretScanning": true,
+    "secretScanningPushProtection": true
+  }
+}

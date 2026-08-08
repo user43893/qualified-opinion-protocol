@@ -1,0 +1,107 @@
+{
+  "schema": "standalone-publication-provenance-current",
+  "repository": {
+    "id": "qualified-opinion-protocol",
+    "releaseBoundary": "current-v3-only"
+  },
+  "history": {
+    "mode": "parentless-standalone",
+    "expectedRootCount": 1
+  },
+  "rootPackage": {
+    "name": "qualified-opinion-protocol-v3-workspace",
+    "version": "3.0.0",
+    "private": true,
+    "workspaces": ["packages/*"]
+  },
+  "repositoryControls": {
+    "mode": "repository-local-product-neutral-current",
+    "hardeningManifest": "PUBLICATION-HARDENING.json",
+    "hardeningSource": "scripts/publication-hardening.ts",
+    "workflow": ".github/workflows/post-public-hardening.yml"
+  },
+  "topology": {
+    "topLevelPaths": [
+      ".github",
+      ".gitignore",
+      ".gitleaks.toml",
+      ".npmrc",
+      "CODE_OF_CONDUCT.md",
+      "CONTRIBUTING.md",
+      "LICENSE",
+      "NOTICE",
+      "PUBLICATION-HARDENING.json",
+      "PUBLICATION-PROVENANCE.json",
+      "README.md",
+      "SECURITY.md",
+      "biome.json",
+      "bun.lock",
+      "docs",
+      "package.json",
+      "packages",
+      "scripts",
+      "tsconfig.json",
+      "vectors"
+    ],
+    "requiredPaths": [
+      ".github/workflows/ci.yml",
+      ".github/workflows/post-public-hardening.yml",
+      ".github/workflows/secret-scan.yml",
+      ".gitleaks.toml",
+      "LICENSE",
+      "PUBLICATION-HARDENING.json",
+      "README.md",
+      "docs/protocol.md",
+      "docs/publication-hardening.md",
+      "package.json",
+      "packages/protocol/package.json",
+      "packages/verifier/package.json",
+      "scripts/check-boundaries.ts",
+      "scripts/publication-hardening.test.ts",
+      "scripts/publication-hardening.ts",
+      "scripts/run-gitleaks.ts",
+      "scripts/resolve-scanner-release.sh",
+      "scripts/resolve-scanner-release.test.ts",
+      "scripts/verify-publication-topology.ts",
+      "vectors/v3/canonicalization.json"
+    ],
+    "forbiddenPathPrefixes": [
+      "apps",
+      "infrastructure",
+      "packages/db",
+      "packages/domain"
+    ],
+    "workspacePackages": [
+      {
+        "path": "packages/protocol",
+        "name": "@qualified-opinion/protocol",
+        "version": "3.0.0",
+        "private": false
+      },
+      {
+        "path": "packages/verifier",
+        "name": "@qualified-opinion/verifier",
+        "version": "3.0.0",
+        "private": false
+      }
+    ]
+  },
+  "sourceTree": {
+    "algorithm": "sha256-path-length-content-current",
+    "excludes": ["PUBLICATION-PROVENANCE.json"],
+    "sha256": "983386e16d20cc34ed5b8f6ccdecd982db2360e1d85db5c702b58cf6cb37ebdc"
+  },
+  "upstream": {
+    "adaptation": "country-agnostic-qualified-opinion-current-v3",
+    "dependencySourcePaths": [
+      "packages/domain/src/email-verification.ts",
+      "packages/domain/src/google-confidential-space.ts",
+      "packages/transparency-monitor/src/eligibility-directory-witness.ts",
+      "packages/transparency-monitor/src/witness-status.ts"
+    ],
+    "objectFormat": "sha1",
+    "reviewedBaselineSourceSha256": "0a67b76c76098e46455fc8ba916377c1dcc8b877c32972139de12708c70c0b32",
+    "revision": "6277f328d8c8b539d21eae6e64471078acae7bbd",
+    "sourcePaths": ["packages/proof", "packages/proof-verifier"]
+  }
+}
